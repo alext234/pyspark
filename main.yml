@@ -1,0 +1,24 @@
+name: Build and Publish
+
+on:
+  push:
+    branches:
+      - master
+
+jobs:
+
+
+  to_dockerhub:
+    runs-on: ubuntu-latest
+
+    steps: 
+    - uses: actions/checkout@v2 
+
+    - name: Build and Publish to Dockerhub
+      uses: mr-smithers-excellent/docker-build-push@v2
+      with:
+        image: alext234/pyspark
+        registry: docker.io
+        tag: latest-py3
+        username: ${{ secrets.DOCKER_HUB_USERNAME }}
+        password: ${{ secrets.DOCKER_HUB_PASSWORD }}
