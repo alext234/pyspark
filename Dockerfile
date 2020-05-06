@@ -6,7 +6,7 @@ LABEL maintainer="Jupyter Project <jupyter@googlegroups.com>"
 USER root
 
 # Spark dependencies
-ENV APACHE_SPARK_VERSION=2.4.50 \
+ENV APACHE_SPARK_VERSION=2.4.0 \
     HADOOP_VERSION=2.8.5
 
 RUN apt-get -y update && \
