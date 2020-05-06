@@ -19,6 +19,6 @@ jobs:
       with:
         image: alext234/pyspark
         registry: docker.io
-        tag: latest-py3
+        tag: latest
         username: ${{ secrets.DOCKER_HUB_USERNAME }}
         password: ${{ secrets.DOCKER_HUB_PASSWORD }}
