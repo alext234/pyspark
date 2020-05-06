@@ -40,6 +40,11 @@ ENV PYTHONPATH=$SPARK_HOME/python:$SPARK_HOME/python/lib/py4j-0.10.8.1-src.zip \
     SPARK_OPTS="--driver-java-options=-Xms1024M --driver-java-options=-Xmx4096M --driver-java-options=-Dlog4j.logLevel=info" \
     PATH=$PATH:$SPARK_HOME/bin
 
+# aws sdk & hadoop lib
+RUN wget -P /usr/local/spark/jars https://repo1.maven.org/maven2/org/apache/hadoop/hadoop-aws/3.2.0/hadoop-aws-3.2.0.jar 
+RUN wget -P /usr/local/spark/jars https://repo1.maven.org/maven2/com/amazonaws/aws-java-sdk-bundle/1.11.375/aws-java-sdk-bundle-1.11.375.jar
+
+
 USER $NB_UID
 
 # Install pyarrow
@@ -51,7 +56,4 @@ RUN conda install --quiet -y 'pyarrow' && \
 # some more utilities like boto3 awscli
 RUN pip install awscli==1.18.36 boto3==1.12.36
 
-# aws sdk lib 
-RUN wget -P /usr/local/spark/jars https://repo1.maven.org/maven2/org/apache/hadoop/hadoop-aws/3.2.0/hadoop-aws-3.2.0.jar 
-RUN wget -P /usr/local/spark/jars https://repo1.maven.org/maven2/com/amazonaws/aws-java-sdk-bundle/1.11.375/aws-java-sdk-bundle-1.11.375.jar
 
