@@ -14,7 +14,7 @@ Versions:
 ### Example usage
 
 ```
-docker run -p 8887:8888  -p 4040:4040 -p 8080:8080 -v $PWD:/work  -e GRANT_SUDO=yes --user root  -it alext234/pyspark:latest bash
+docker run -p 8888:8888  -p 4040:4040 -p 8080:8080 -v $PWD:/work  -e GRANT_SUDO=yes --user root  -it alext234/pyspark:latest bash
 ```
 
 ```
